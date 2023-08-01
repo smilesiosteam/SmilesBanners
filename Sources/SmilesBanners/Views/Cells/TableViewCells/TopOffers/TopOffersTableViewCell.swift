@@ -15,20 +15,23 @@ public class TopOffersTableViewCell: UITableViewCell {
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var pageController: JXPageControlJump!
 
-    private var autoScroller:CollectionViewAutoScroller!
+    private var autoScroller: CollectionViewAutoScroller?
     public var sliderTimeInterval: Double?
     public var collectionsData: [Any]? {
         didSet{
             collectionView?.reloadData()
-            autoScroller.resetAutoScroller()
-            pageController.currentIndex = 0
-            autoScroller.itemsCount = collectionsData?.count ?? 0
-            autoScroller.startTimer(interval: getTimeInterval())
+            if showPageControl {
+                autoScroller?.resetAutoScroller()
+                pageController.currentIndex = 0
+                autoScroller?.itemsCount = collectionsData?.count ?? 0
+                autoScroller?.startTimer(interval: getTimeInterval())
+            }
         }
     }
     public static let module = Bundle.module
     public var callBack: ((GetTopOffersResponseModel.TopOfferAdsDO) -> ())?
     public var topAdsCallBack: ((GetTopAdsResponseModel.TopAdsDto.TopAd) -> ())?
+    public var showPageControl = true
     weak var timer: Timer?
     
     public override func awakeFromNib() {
@@ -38,8 +41,10 @@ public class TopOffersTableViewCell: UITableViewCell {
         collectionView.dataSource = self
         collectionView.delegate = self
         collectionView.collectionViewLayout = setupCollectionViewLayout()
-        autoScroller = CollectionViewAutoScroller(collectionView: collectionView, itemsCount: 0, currentIndex: 0)
-        
+        if showPageControl {
+            autoScroller = CollectionViewAutoScroller(collectionView: collectionView, itemsCount: 0, currentIndex: 0)
+        }
+        pageController.isHidden = !showPageControl
         if AppCommonMethods.languageIsArabic() {
             pageController.transform = CGAffineTransform(rotationAngle: .pi)
         }
@@ -62,10 +67,10 @@ public class TopOffersTableViewCell: UITableViewCell {
             section.orthogonalScrollingBehavior = .paging
             
             section.visibleItemsInvalidationHandler = { [weak self] (items, offset, env) -> Void in
-                guard let self = self else { return }
+                guard let self = self, self.showPageControl else { return }
                 let page = round(offset.x / self.collectionView.bounds.width)
                 self.pageController.currentPage = Int(page)
-                self.autoScroller.currentIndex = Int(page)
+                self.autoScroller?.currentIndex = Int(page)
             }
             return section
         }

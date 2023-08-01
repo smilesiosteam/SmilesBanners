@@ -71,6 +71,7 @@
             <connections>
                 <outlet property="collectionView" destination="eqU-y0-zJy" id="7bX-Ja-6wf"/>
                 <outlet property="mainView" destination="rvg-ci-Ojt" id="L4j-lV-qW1"/>
+                <outlet property="pageControlHeight" destination="ZQI-TJ-yz3" id="Pze-t9-ADN"/>
                 <outlet property="pageController" destination="dsi-Yp-5wM" id="FA8-n2-cqw"/>
             </connections>
             <point key="canvasLocation" x="-5.3846153846153841" y="51.895734597156398"/>

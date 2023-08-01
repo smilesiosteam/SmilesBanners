@@ -14,7 +14,8 @@ public class TopOffersTableViewCell: UITableViewCell {
     @IBOutlet weak var mainView: UIView!
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var pageController: JXPageControlJump!
-
+    @IBOutlet weak var pageControlHeight: NSLayoutConstraint!
+    
     private var autoScroller: CollectionViewAutoScroller?
     public var sliderTimeInterval: Double?
     public var collectionsData: [Any]? {
@@ -35,7 +36,9 @@ public class TopOffersTableViewCell: UITableViewCell {
         didSet {
             if !showPageControl {
                 pageController.isHidden = true
+                pageControlHeight.constant = 0
                 autoScroller = nil
+                layoutIfNeeded()
             }
         }
     }
@@ -104,7 +107,9 @@ extension TopOffersTableViewCell: UICollectionViewDelegate, UICollectionViewData
         let count = collectionsData?.count ?? 0
         
         pageController.numberOfPages = count
-        pageController.isHidden = !(count > 1)
+        if showPageControl {
+            pageController.isHidden = !(count > 1)
+        }
         
         return count
     }

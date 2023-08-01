@@ -31,7 +31,14 @@ public class TopOffersTableViewCell: UITableViewCell {
     public static let module = Bundle.module
     public var callBack: ((GetTopOffersResponseModel.TopOfferAdsDO) -> ())?
     public var topAdsCallBack: ((GetTopAdsResponseModel.TopAdsDto.TopAd) -> ())?
-    public var showPageControl = true
+    public var showPageControl = true {
+        didSet {
+            if !showPageControl {
+                pageController.isHidden = true
+                autoScroller = nil
+            }
+        }
+    }
     weak var timer: Timer?
     
     public override func awakeFromNib() {

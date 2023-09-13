@@ -11,11 +11,13 @@ public struct GetTopOffersResponseModel: Codable {
     
     public let extTransactionId: String?
     public let sliderTimeout: Double?
+    public let bannerType: String?
+    public let bannerSubType: String?
     public let ads: [TopOfferAdsDO]?
     
     public enum CodingKeys: String, CodingKey {
         case extTransactionId
-        case sliderTimeout, ads
+        case sliderTimeout, ads, bannerType, bannerSubType
     }
     
     public init(from decoder: Decoder) throws {
@@ -23,6 +25,8 @@ public struct GetTopOffersResponseModel: Codable {
         extTransactionId = try values.decodeIfPresent(String.self, forKey: .extTransactionId)
         sliderTimeout = try values.decodeIfPresent(Double.self, forKey: .sliderTimeout)
         ads = try values.decodeIfPresent([TopOfferAdsDO].self, forKey: .ads)
+        bannerType = try values.decodeIfPresent(String.self, forKey: .bannerType)
+        bannerSubType = try values.decodeIfPresent(String.self, forKey: .bannerSubType)
     }
     
     public struct TopOfferAdsDO : Codable {

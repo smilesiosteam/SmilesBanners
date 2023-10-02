@@ -19,7 +19,8 @@ let package = Package(
         // .package(url: /* package url */, from: "1.0.0"),
         .package(url: "https://github.com/smilesiosteam/SmilesBaseMainRequest.git", branch: "main"),
         .package(url: "https://github.com/smilesiosteam/NetworkingLayer.git", branch: "main"),
-        .package(url: "https://github.com/smilesiosteam/SmilesUtilities.git", branch: "main"),
+        .package(url: "https://github.com/smilesiosteam/SmilesUtilities.git", branch: "RemovalSharedModels"),
+        .package(url: "https://github.com/smilesiosteam/SmilesSharedModels.git", branch: "main"),
         .package(url: "https://github.com/smilesiosteam/SmilesPageControl.git", branch: "main"),
         .package(url: "https://github.com/smilesiosteam/LottieAnimationManager.git", branch: "main")
     ],
@@ -32,6 +33,7 @@ let package = Package(
                 .product(name: "SmilesBaseMainRequestManager", package: "SmilesBaseMainRequest"),
                 .product(name: "NetworkingLayer", package: "NetworkingLayer"),
                 .product(name: "SmilesUtilities", package: "SmilesUtilities"),
+                .product(name: "SmilesSharedModels", package: "SmilesSharedModels"),
                 .product(name: "SmilesPageController", package: "SmilesPageControl"),
                 .product(name: "LottieAnimationManager", package: "LottieAnimationManager")
             ]),

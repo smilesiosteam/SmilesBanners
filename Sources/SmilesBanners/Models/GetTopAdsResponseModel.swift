@@ -49,12 +49,14 @@ public struct GetTopAdsResponseModel: Codable {
             public let adImageUrl: String?
             public let externalWebUrl: String?
             public var adsJsonAnimationUrl: String?
+            public let sourceClick: String?
             
             public enum CodingKeys: String, CodingKey {
                 case adId = "adId"
                 case adImageUrl = "adImageUrl"
                 case externalWebUrl = "externalWebUrl"
                 case adsJsonAnimationUrl = "adsJsonAnimationUrl"
+                case sourceClick
             }
             
             public init(from decoder: Decoder) throws {
@@ -63,6 +65,7 @@ public struct GetTopAdsResponseModel: Codable {
                 adImageUrl = try values.decodeIfPresent(String.self, forKey: .adImageUrl)
                 externalWebUrl = try values.decodeIfPresent(String.self, forKey: .externalWebUrl)
                 adsJsonAnimationUrl = try values.decodeIfPresent(String.self, forKey: .adsJsonAnimationUrl)
+                sourceClick = try values.decodeIfPresent(String.self, forKey: .sourceClick)
             }
         }
     }

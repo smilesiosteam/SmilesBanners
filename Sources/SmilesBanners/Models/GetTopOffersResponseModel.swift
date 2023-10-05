@@ -37,10 +37,12 @@ public struct GetTopOffersResponseModel: Codable {
         public let featured: Bool?
         public let isPromotional: Bool?
         public var adsJsonAnimationUrl: String?
+        public let sourceClick: String?
 
         public enum CodingKeys: String, CodingKey {
             case adId
             case adImageUrl, externalWebUrl, featured, isPromotional, adsJsonAnimationUrl
+            case sourceClick
         }
         
         public init(from decoder: Decoder) throws {
@@ -51,6 +53,7 @@ public struct GetTopOffersResponseModel: Codable {
             featured = try values.decodeIfPresent(Bool.self, forKey: .featured)
             isPromotional = try values.decodeIfPresent(Bool.self, forKey: .isPromotional)
             adsJsonAnimationUrl = try values.decodeIfPresent(String.self, forKey: .adsJsonAnimationUrl)
+            sourceClick = try values.decodeIfPresent(String.self, forKey: .sourceClick)
         }
                 
     }

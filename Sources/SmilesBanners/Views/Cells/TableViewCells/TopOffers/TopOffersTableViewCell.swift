@@ -24,6 +24,7 @@ public class TopOffersTableViewCell: UITableViewCell {
             if showPageControl {
                 autoScroller?.resetAutoScroller()
                 pageController.currentIndex = 0
+                pageController.activeColor = .appRevampPurpleMainColor
                 autoScroller?.itemsCount = collectionsData?.count ?? 0
                 autoScroller?.startTimer(interval: getTimeInterval())
             }

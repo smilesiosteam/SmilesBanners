@@ -24,7 +24,7 @@ public class TopOffersCollectionViewCell: UICollectionViewCell {
         lottieAnimationView.isHidden = true
     }
     
-    public func configureCell(with bannerImage: String, animationURL: String?) {
+    public func configureCell(with bannerImage: String, animationURL: String? = nil) {
         lottieAnimationView.subviews.forEach({ $0.removeFromSuperview() })
 
         if let animationJsonURL = animationURL, !animationJsonURL.isEmpty {

@@ -35,7 +35,7 @@ public class CollectionViewAutoScroller: NSObject {
     // -------------------------------------------------------------------------------
     //    Timer Controls
     // -------------------------------------------------------------------------------
-    func startTimer(interval: Double = 5.0) {
+    public func startTimer(interval: Double = 5.0) {
         guard itemsCount>0 else {return}
         timer?.invalidate()
         timer = Timer.scheduledTimer(withTimeInterval: interval, repeats: true) { [weak self] timer in
@@ -68,7 +68,7 @@ public class CollectionViewAutoScroller: NSObject {
         timer?.fire()
     }
     
-    func stopTimer() {
+    public func stopTimer() {
         timer?.invalidate()
         timer = nil
     }

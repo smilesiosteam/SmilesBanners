@@ -8,13 +8,13 @@
 import Foundation
 import UIKit
 
-class CollectionViewAutoScroller: NSObject {
-    var itemsCount = 0
-    var collectionView: UICollectionView?
-    weak var timer: Timer?
-    var currentIndex = 0
+public class CollectionViewAutoScroller: NSObject {
+    public var itemsCount = 0
+    public var collectionView: UICollectionView?
+    public weak var timer: Timer?
+    public var currentIndex = 0
     
-    init(collectionView: UICollectionView, itemsCount:Int,currentIndex:Int) {
+    public init(collectionView: UICollectionView, itemsCount:Int,currentIndex:Int) {
         self.itemsCount = itemsCount
         self.collectionView = collectionView
         self.currentIndex = currentIndex
@@ -24,7 +24,7 @@ class CollectionViewAutoScroller: NSObject {
         }
     }
     
-    func resetAutoScroller() {
+    public func resetAutoScroller() {
         
         timer?.invalidate()
         itemsCount = 0

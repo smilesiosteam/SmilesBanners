@@ -8,13 +8,13 @@
 import UIKit
 import LottieAnimationManager
 
-class TopOffersCollectionViewCell: UICollectionViewCell {
+public class TopOffersCollectionViewCell: UICollectionViewCell {
     
     @IBOutlet weak var parentView: UIView!
     @IBOutlet weak var image: UIImageView!
     @IBOutlet weak var lottieAnimationView: UIView!
 
-    override func awakeFromNib() {
+    public override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
         setupUI()
@@ -24,7 +24,7 @@ class TopOffersCollectionViewCell: UICollectionViewCell {
         lottieAnimationView.isHidden = true
     }
     
-    func configureCell(with bannerImage: String, animationURL: String?) {
+    public func configureCell(with bannerImage: String, animationURL: String?) {
         lottieAnimationView.subviews.forEach({ $0.removeFromSuperview() })
 
         if let animationJsonURL = animationURL, !animationJsonURL.isEmpty {

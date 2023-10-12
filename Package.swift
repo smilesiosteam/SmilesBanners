@@ -21,7 +21,7 @@ let package = Package(
         .package(url: "https://github.com/smilesiosteam/NetworkingLayer.git", branch: "shared_Models"),
         .package(url: "https://github.com/smilesiosteam/SmilesUtilities.git", branch: "shared_Models"),
         .package(url: "https://github.com/smilesiosteam/SmilesSharedModels.git", branch: "main"),
-        .package(url: "https://github.com/smilesiosteam/SmilesPageControl.git", branch: "main"),
+        .package(url: "https://github.com/smilesiosteam/SmilesPageControl.git", branch: "shared_Models"),
         .package(url: "https://github.com/smilesiosteam/LottieAnimationManager.git", branch: "main")
     ],
     targets: [

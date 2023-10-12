@@ -95,8 +95,8 @@
       "kind" : "remoteSourceControl",
       "location" : "https://github.com/smilesiosteam/SmilesPageControl.git",
       "state" : {
-        "branch" : "main",
-        "revision" : "dd96e43d08046dda138f7c3b305a9ce41814437d"
+        "branch" : "shared_Models",
+        "revision" : "440fbf0071be8818bdeface118b01cf61f8257e2"
       }
     },
     {

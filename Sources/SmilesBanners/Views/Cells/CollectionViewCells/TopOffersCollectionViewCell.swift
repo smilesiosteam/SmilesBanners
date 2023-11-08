@@ -30,8 +30,10 @@ class TopOffersCollectionViewCell: UICollectionViewCell {
         if let animationJsonURL = animationURL, !animationJsonURL.isEmpty {
             lottieAnimationView.isHidden = false
             image.isHidden = true
-            LottieAnimationManager.showAnimationFromUrl(FromUrl: animationJsonURL, animationBackgroundView: self.lottieAnimationView, removeFromSuper: false, loopMode: .loop) { (bool) in
-                
+            if let url = URL(string: animationJsonURL) {
+                LottieAnimationManager.showAnimationFromUrl(FromUrl: url, animationBackgroundView: self.lottieAnimationView, removeFromSuper: false, loopMode: .loop) { (bool) in
+                    
+                }
             }
             
         } else {
